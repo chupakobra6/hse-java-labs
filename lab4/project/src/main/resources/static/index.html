@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Кто хочет стать миллионером?</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<main class="shell">
+    <section class="game">
+        <header class="topbar">
+            <div class="logo-frame">
+                <img class="logo" src="/static/picture.jpg" alt="Кто хочет стать миллионером">
+            </div>
+            <div>
+                <p class="eyebrow">Java web edition</p>
+                <h1>Кто хочет стать миллионером?</h1>
+                <p id="statusText">Новая игра</p>
+            </div>
+        </header>
+
+        <form id="startForm" class="start-panel">
+            <label>
+                Игрок
+                <input id="playerName" name="playerName" type="text" value="Игорь" maxlength="40" data-testid="player-name">
+            </label>
+            <label>
+                Несгораемая сумма
+                <select id="safeLevel" name="safeLevel" data-testid="safe-level">
+                    <option value="0">без несгораемой суммы</option>
+                    <option value="1">500</option>
+                    <option value="2">1 000</option>
+                    <option value="3">2 000</option>
+                    <option value="4">3 000</option>
+                    <option value="5">5 000</option>
+                    <option value="6">10 000</option>
+                    <option value="7">15 000</option>
+                    <option value="8">25 000</option>
+                    <option value="9">50 000</option>
+                    <option value="10" selected>100 000</option>
+                    <option value="11">200 000</option>
+                    <option value="12">400 000</option>
+                    <option value="13">800 000</option>
+                    <option value="14">1 500 000</option>
+                    <option value="15">3 000 000</option>
+                </select>
+            </label>
+            <button class="primary" type="submit" data-testid="start-game">Начать игру</button>
+        </form>
+
+        <section class="stage-card" aria-live="polite">
+            <div class="meta">
+                <span id="levelText">Вопрос 1</span>
+                <span id="amountText">500</span>
+            </div>
+            <h2 id="questionText">Нажмите «Начать игру»</h2>
+            <div id="answers" class="answers"></div>
+        </section>
+
+        <section class="hints">
+            <button class="lifeline" type="button" data-hint="fifty-fifty" data-testid="hint-fifty">50/50</button>
+            <button class="lifeline" type="button" data-hint="audience" data-testid="hint-audience">Зал</button>
+            <button class="lifeline" type="button" data-hint="phone" data-testid="hint-phone">Друг</button>
+            <button class="lifeline" type="button" data-hint="double-dip" data-testid="hint-double">Ошибка</button>
+            <button class="lifeline" type="button" data-hint="switch" data-testid="hint-switch">Замена</button>
+            <button class="walk-away" type="button" id="stopGame" data-testid="stop-game">Забрать</button>
+        </section>
+
+        <section id="hintOutput" class="hint-output"></section>
+    </section>
+
+    <aside class="sidebar">
+        <section>
+            <h2>Лестница</h2>
+            <ol id="ladder" class="ladder"></ol>
+        </section>
+        <section>
+            <h2>TOP 10</h2>
+            <ol id="records" class="records"></ol>
+        </section>
+    </aside>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
